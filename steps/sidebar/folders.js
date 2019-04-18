@@ -2,13 +2,13 @@ import DefaultSteps from '../default';
 import page from '../../pages/sidebar/folders';
 
 class FoldersSteps extends DefaultSteps {
-	constructor() {
-		super(page);
-	}
+    constructor() {
+        super(page);
+    }
 
-	clickFolderByName(folderName) {
-		this.page.clickFolderByName(folderName);
-	}
+    clickFolderByName(folderName) {
+        this.page.clickFolderByName(folderName);
+    }
 
 }
 
