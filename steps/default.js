@@ -9,6 +9,6 @@ export default class DefaultSteps {
 	}
 
 	redirectToQa() {
-		this.open('/bundles/page.qa.html');
+		this.open(''); // /bundles/page.qa.html
 	}
 }
