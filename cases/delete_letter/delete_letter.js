@@ -11,11 +11,11 @@ describe('delete test', () => {
 		main.open('https://mail.ru');
 		main.login(process.env.LOGIN, process.env.PASSWORD);
 		
-		https://octavius.mail.ru/trash/
 		letters.openByLetterNumber(1); // 
 		buttons.checkByName('.button2_delete')
 		buttons.clickByName('.button2_delete')
 
+		main.open('https://octavius.mail.ru/trash/');
 		returnToInbox('trash')
 	});
 });
