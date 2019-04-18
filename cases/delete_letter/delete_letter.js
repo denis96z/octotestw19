@@ -6,8 +6,8 @@ import buttons from '../../steps/portal/button';
 import returnToInbox from '../../steps/utils';
 
 // пример теста
-describe('button test', () => {
-	it('Авторизоваться и открыть первое письмо на странице и проверить наличие кнопки удалить', () => {
+describe('delete test', () => {
+	it('Авторизоваться и открыть первое письмо на странице и проверить наличие кнопки удалить и удалить это письмо', () => {
 		main.open('https://mail.ru');
 		main.login(process.env.LOGIN, process.env.PASSWORD);
 		
