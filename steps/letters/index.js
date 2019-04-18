@@ -6,9 +6,9 @@ class LettersSteps extends DefaultSteps {
 		super(page);
 	}
 
-	openBySubject(subject) {
-		this.page.hasLetterBySubject(subject);
-		this.page.openBySubject(subject);
+	openByLetterNumber(letterNumber) {
+		this.page.hasLetterByLetterNumber(letterNumber);
+		this.page.openByLetterNumber(letterNumber);
 	}
 
 }
