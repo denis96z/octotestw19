@@ -2,7 +2,7 @@ import buttons from './portal/button';
 import letters from './letters/index';
 import main from './main';
 
-export default function returnToInbox(from){
+export default function returnToInbox(from) {
     // возвращаем во входящие 
     main.open(`https://octavius.mail.ru/${from}/`);
     letters.openByLetterNumber(1);

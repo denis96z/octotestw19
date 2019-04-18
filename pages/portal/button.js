@@ -1,36 +1,36 @@
 import DefaultPage from '../default';
 
 class ButtonsPage extends DefaultPage {
-	constructor() {
-		super('buttons')
-	}
+    constructor() {
+        super('buttons')
+    }
 
-	get locators() {
-		const container = '';
-		return {
-			container,
-			buttonByName: (buttonName) => container + ` ${buttonName}`
-		}
-	}
+    get locators() {
+        const container = '';
+        return {
+            container,
+            buttonByName: (buttonName) => container + ` ${buttonName}`
+        }
+    }
 
-	/**
-	 * Проверяет, есть ли такая кнопка в меню
-	 * @param {string} buttonName
-	 */
-	hasButtonByName(buttonName, reverse = false) {
-		try {
-			this.page.waitForVisible(this.locators.buttonByName(buttonName), null, reverse);
+    /**
+     * Проверяет, есть ли такая кнопка в меню
+     * @param {string} buttonName
+     */
+    hasButtonByName(buttonName, reverse = false) {
+        try {
+            this.page.waitForVisible(this.locators.buttonByName(buttonName), null, reverse);
 
-			return true;
-		} catch (err) {
-			return false;
-		}
-	}
+            return true;
+        } catch (err) {
+            return false;
+        }
+    }
 
-	clickButtonByName(buttonName, reverse = false) {
-		this.page.waitForVisible(this.locators.buttonByName(buttonName), null, reverse);
-		this.page.click(this.locators.buttonByName(buttonName));
-	}
+    clickButtonByName(buttonName, reverse = false) {
+        this.page.waitForVisible(this.locators.buttonByName(buttonName), null, reverse);
+        this.page.click(this.locators.buttonByName(buttonName));
+    }
 
 }
 
