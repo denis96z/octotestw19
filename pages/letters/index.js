@@ -6,28 +6,24 @@ class LettersPage extends DefaultPage {
 	}
 
 	get locators () {
-		const container = '[data-qa-id="dataset-letters"]';
+		const container = '[class="dataset__items"]';
 
 		return {
 			container,
-			letterBySubject: (subject) => {
-				// subject = subject === '' ? '<Без темы>' : subject.replace('"', '\\"');
-
-				return `${this.locators.container} [data-qa-id="letter-item:subject:${subject}"]`;
-			}
+			letterByLetterNumber: (letterNumber) => container + ` a.llc:nth-child(${letterNumber})`
 		}
 	}
 
 	/**
 	 * Проверяет есть ли письмо с темой
 	 *
-	 * @param {string} subject
+	 * @param {string} letterNumber
 	 * @param {boolean} reverse
 	 * @returns {boolean}
 	 */
-	hasLetterBySubject (subject, reverse = false) {
+	hasLetterByLetterNumber (letterNumber, reverse = false) {
 		try {
-			this.page.waitForVisible(this.locators.letterBySubject(subject), null, reverse);
+			this.page.waitForVisible(this.locators.letterByLetterNumber(letterNumber), null, reverse);
 
 			return true;
 		} catch (err) {
@@ -36,11 +32,19 @@ class LettersPage extends DefaultPage {
 	}
 
 	/**
-	 * Открыть письмо по теме
-	 * @param  {string} subject
+	 * Открыть письмо по letterNumber
+	 * @param  {string} letterNumber
 	 */
-	openBySubject (subject) {
-		this.page.click(this.locators.letterBySubject(subject));
+	openByLetterNumber (letterNumber, reverse = false) {
+		try {
+			this.page.waitForVisible(this.locators.letterByLetterNumber(letterNumber), null, reverse);
+			this.page.click(this.locators.letterByLetterNumber(letterNumber));
+
+			return true;
+		} catch (err) {
+			return false;
+		}
+		
 	}
 
 }
