@@ -4,6 +4,9 @@ node_js:
 
 addons:
   chrome: stable
+  apt:
+    packages:
+      - software-properties-common
 
 jobs:
   include:
