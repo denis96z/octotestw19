@@ -2,8 +2,8 @@ import main from '../../steps/main';
 import letters from '../../steps/letters';
 import buttons from '../../steps/portal/button';
 
-describe('button test', () => {
-    it('Авторизоваться и открыть первое письмо на странице и проверить наличие кнопки удалить', () => {
+describe('folder test', () => {
+    it('Авторизоваться и переместить письмо в папку входящие', () => {
         main.open('https://mail.ru');
         main.login(process.env.LOGIN, process.env.PASSWORD);
 
