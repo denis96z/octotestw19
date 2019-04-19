@@ -5,10 +5,10 @@ WORKDIR /tmp
 #        && apt-get update && apt-get install -y chromium-browser
 
 
-RUN sudo apt-get update && sudo apt-get install google-chrome-stable \
+RUN apt-get update && apt-get install google-chrome-stable \
         && wget http://chromedriver.storage.googleapis.com/2.23/chromedriver_linux64.zip \
         && unzip chromedriver_linux64.zip \
-        && nohup sudo Xvfb :10 -ac \
+        && nohup Xvfb :10 -ac \
         && export DISPLAY=:10 \
         && java -jar vendor/se/selenium-server-standalone/bin/selenium-server-standalone.jar -Dwebdriver.chrome.bin="/usr/bin/google-chrome" -Dwebdriver.chrome.driver="vendor/bin/chromedriver" \
 
