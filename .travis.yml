@@ -8,7 +8,6 @@ addons:
 before_install:
   - # start your web application and listen on `localhost`
   - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9515 http://localhost &
-  ⋮
 
 jobs:
   include:
@@ -21,6 +20,7 @@ jobs:
         - if [[ ${TRAVIS_BRANCH} == "master" ]] && [[ ${TRAVIS_PULL_REQUEST} == "false" ]]; then
             ./image.sh push
           fi
+
     - stage: run e2e tests
       script:
         - npm i && npm test
