@@ -15,7 +15,6 @@ describe('delete test', () => {
 		buttons.checkByName('.button2_delete')
 		buttons.clickByName('.button2_delete')
 
-		main.open('https://octavius.mail.ru/trash/');
 		returnToInbox('trash')
 	});
 });
