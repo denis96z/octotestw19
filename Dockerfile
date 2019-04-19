@@ -4,6 +4,7 @@ WORKDIR /tmp
 #        && add-apt-repository ppa:canonical-chromium-builds/stage \
 #        && apt-get update && apt-get install -y chromium-browser
 
+RUN apt-get install unzip
 
 RUN        wget http://chromedriver.storage.googleapis.com/2.23/chromedriver_linux64.zip \
         && unzip chromedriver_linux64.zip \
