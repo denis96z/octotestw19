@@ -5,8 +5,7 @@ WORKDIR /tmp
 #        && apt-get update && apt-get install -y chromium-browser
 
 
-RUN apt-get update && apt-get install google-chrome-stable \
-        && wget http://chromedriver.storage.googleapis.com/2.23/chromedriver_linux64.zip \
+RUN        wget http://chromedriver.storage.googleapis.com/2.23/chromedriver_linux64.zip \
         && unzip chromedriver_linux64.zip \
         && nohup Xvfb :10 -ac \
         && export DISPLAY=:10 \
