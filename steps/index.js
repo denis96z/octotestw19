@@ -3,11 +3,13 @@ import dropdowns from './portal/dropdown';
 import letters from './letters';
 import main from './main';
 
-export default function returnToInbox(from) {
-    // возвращаем во входящие 
+export default function returnToInbox(from, subject) {
     main.open(`https://octavius.mail.ru/${from}/`);
-    letters.openBySubject("Вход с нового устройства"); // выбор письма по теме
-
+    letters.openBySubject(subject);
     buttons.clickByName('В папку');
-    dropdowns.clickByName("inbox"); // клик по иконке(Входящие)
+    dropdowns.clickByNumber(1, "folders"); // клик по иконке(Входящие)
+}
+
+export function checkReadUnread(){
+    main.open(`https://octavius.mail.ru/`);
 }

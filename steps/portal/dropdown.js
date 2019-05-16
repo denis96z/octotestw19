@@ -6,13 +6,18 @@ class DropdownsSteps extends DefaultSteps {
         super(page);
     }
 
-    checkByName(elementName) {
-        this.page.hasElementByName(elementName);
+    checkByNumber(elementNumber, type) {
+        this.page.hasElementByNumber(elementNumber, type);
     }
 
-    clickByName(elementName) {
-        this.checkByName(elementName);
-        this.page.clickElementByName(elementName);
+    /**
+     * 
+     * @param {*} elementNumber номер в пункте меню
+     * @param {*} type тип выпадающего меню ["folders", "more"]
+     */
+    clickByNumber(elementNumber, type) { 
+        this.checkByNumber(elementNumber, type);
+        this.page.clickElementByNumber(elementNumber, type);
     }
 
 }

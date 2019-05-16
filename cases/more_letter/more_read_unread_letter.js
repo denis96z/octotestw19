@@ -1,28 +1,31 @@
 import main from '../../steps/main';
 import letters from '../../steps/letters';
 import buttons from '../../steps/portal/button';
+import dropdowns from '../../steps/portal/dropdown';
 
-// пример теста
 describe('read/unread letter test', () => {
     it('Авторизоваться и открыть первое письмо на странице, пометить его как прочитанное, затем как непрочитанное', () => {
         main.open('https://mail.ru');
         main.login(process.env.LOGIN, process.env.PASSWORD);
 
-        letters.openByLetterNumber(1);
-        // кнопка ещё
-        buttons.checkByName('div.portal-menu-element:nth-child(6)')
-        buttons.clickByName('div.portal-menu-element:nth-child(6)')
+        const subject = 'test1';
+        const id = '1:9ed4cdea4d30a62d:0';
 
+        letters.openBySubject(subject);
+        // кнопка ещё
+        buttons.clickByName('Ещё');
         // пометить непрочитанным 
-        buttons.checkByName('.dropdown_expanded > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)')
-        buttons.clickByName('.dropdown_expanded > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)')
+        dropdowns.clickByNumber(1, "more");
 
-        // кнопка ещё
-        buttons.checkByName('div.portal-menu-element:nth-child(6)')
-        buttons.clickByName('div.portal-menu-element:nth-child(6)')
 
+        main.open('https://octavius.mail.ru/inbox/');
+        letters.checkReadUnread(subject, id);
+
+
+        letters.openBySubject(subject);
+		// кнопка ещё
+        buttons.clickByName('Ещё');
         // пометить прочитанным 
-        buttons.checkByName('.dropdown_expanded > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)')
-        buttons.clickByName('.dropdown_expanded > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)')
+        dropdowns.clickByNumber(1, "more");
     });
 });

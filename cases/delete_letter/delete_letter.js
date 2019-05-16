@@ -1,20 +1,22 @@
 import main from '../../steps/main';
-import layout from '../../steps/layout'
-import folders from '../../steps/sidebar/folders';
 import letters from '../../steps/letters';
 import buttons from '../../steps/portal/button';
-import returnToInbox from '../../steps/utils';
+import returnToInbox from '../../steps';
 
-// пример теста
 describe('delete test', () => {
-	it('Авторизоваться и открыть первое письмо на странице и проверить наличие кнопки удалить и удалить это письмо', () => {
-		main.open('https://mail.ru');
-		main.login(process.env.LOGIN, process.env.PASSWORD);
-		
-		letters.openByLetterNumber(1); // 
-		buttons.checkByName('.button2_delete')
-		buttons.clickByName('.button2_delete')
+    it('Авторизоваться и открыть первое письмо на странице и проверить наличие кнопки удалить и удалить это письмо', () => {
+        main.open('https://mail.ru');
+        main.login(process.env.LOGIN, process.env.PASSWORD);
 
-		returnToInbox('trash')
-	});
+        let subject = 'test1';
+
+        letters.openBySubject(subject);
+        buttons.clickByName('Удалить');
+
+        returnToInbox('trash', subject);
+
+        // откроем это письмо, чтобы убедится, что всё ок
+        main.open('https://octavius.mail.ru/inbox/');
+		letters.openBySubject(subject);
+    });
 });
