@@ -9,5 +9,5 @@ export default function returnToInbox(from) {
     letters.openBySubject("Вход с нового устройства"); // выбор письма по теме
 
     buttons.clickByName('В папку');
-    dropdowns.clickByName("inbox"); // клик по иконке(Входящие)
+    dropdowns.clickByIcoName("inbox", "folders"); // клик по иконке(Входящие)
 }

@@ -1,6 +1,7 @@
 import main from '../../steps/main';
 import letters from '../../steps/letters';
 import buttons from '../../steps/portal/button';
+import dropdowns from '../../steps/portal/dropdown';
 
 // пример теста
 describe('flag test', () => {
@@ -8,21 +9,15 @@ describe('flag test', () => {
         main.open('https://mail.ru');
         main.login(process.env.LOGIN, process.env.PASSWORD);
 
-        letters.openByLetterNumber(1);
+        letters.openBySubject("Вход с нового устройства");
         // кнопка ещё
-        buttons.checkByName('div.portal-menu-element:nth-child(6)')
-        buttons.clickByName('div.portal-menu-element:nth-child(6)')
-
-        // пометить флагом 
-        buttons.checkByName('.dropdown_expanded > div:nth-child(2) > div:nth-child(1) > div:nth-child(2)')
-        buttons.clickByName('.dropdown_expanded > div:nth-child(2) > div:nth-child(1) > div:nth-child(2)')
+        buttons.clickByName('Ещё');
+        // пометить непрочитанным 
+        dropdowns.clickByIcoName("16-flag", "more");
 
         // кнопка ещё
-        buttons.checkByName('div.portal-menu-element:nth-child(6)')
-        buttons.clickByName('div.portal-menu-element:nth-child(6)')
-
-        // снять флаг 
-        buttons.checkByName('.dropdown_expanded > div:nth-child(2) > div:nth-child(1) > div:nth-child(2)')
-        buttons.clickByName('.dropdown_expanded > div:nth-child(2) > div:nth-child(1) > div:nth-child(2)')
+        buttons.clickByName('Ещё');
+        // пометить прочитанным 
+        dropdowns.clickByIcoName("16-flag", "more");
     });
 });

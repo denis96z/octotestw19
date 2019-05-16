@@ -1,6 +1,7 @@
 import main from '../../steps/main';
 import letters from '../../steps/letters';
 import buttons from '../../steps/portal/button';
+import dropdowns from '../../steps/portal/dropdown';
 
 // пример теста
 describe('read/unread letter test', () => {
@@ -8,21 +9,15 @@ describe('read/unread letter test', () => {
         main.open('https://mail.ru');
         main.login(process.env.LOGIN, process.env.PASSWORD);
 
-        letters.openByLetterNumber(1);
+        letters.openBySubject("Вход с нового устройства");
         // кнопка ещё
-        buttons.checkByName('div.portal-menu-element:nth-child(6)')
-        buttons.clickByName('div.portal-menu-element:nth-child(6)')
-
+        buttons.clickByName('Ещё');
         // пометить непрочитанным 
-        buttons.checkByName('.dropdown_expanded > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)')
-        buttons.clickByName('.dropdown_expanded > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)')
+        dropdowns.clickByIcoName("16-point", "more");
 
         // кнопка ещё
-        buttons.checkByName('div.portal-menu-element:nth-child(6)')
-        buttons.clickByName('div.portal-menu-element:nth-child(6)')
-
+        buttons.clickByName('Ещё');
         // пометить прочитанным 
-        buttons.checkByName('.dropdown_expanded > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)')
-        buttons.clickByName('.dropdown_expanded > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)')
+        dropdowns.clickByIcoName("16-point", "more");
     });
 });

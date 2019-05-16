@@ -7,29 +7,44 @@ class DropdownsPage extends DefaultPage {
 
     get locators() {
         const inFolderContainer = '.dropdown__menu .nav-folders .nav_expanded';
+        const inMoreContainer = '.dropdown_expanded .dropdown__menu .list .list-item .list-item__ico'
         return {
-            elementByNumber: (elementName) => inFolderContainer + ` > .nav__item .nav__folder .nav__folder-ico .ico_${elementName}`
+            elementFolderByNumber: (elementName) => inFolderContainer + ` > .nav__item .nav__folder .nav__folder-ico .ico_${elementName}`,
+            elementMoreByNumber: (elementName) => inMoreContainer + ` > .ico_${elementName}`,
         }
     }
     /**
      * Проверяет, есть ли такая кнопка в меню
      * @param {string} elementName
      */
-    hasElementByName(elementName, reverse = false) {
+    hasElementByName(elementName, type, reverse = false) {
         try {
-            console.log("element: ", this.locators.elementByNumber(elementName));
-            
-            this.page.waitForVisible(this.locators.elementByNumber(elementName), null, reverse);
-
-            return true;
+            switch (type){
+                case "folder": {
+                    this.page.waitForVisible(this.locators.elementFolderByNumber(elementName), null, reverse);
+                    return true;
+                }
+                case "more": {
+                    this.page.waitForVisible(this.locators.elementMoreByNumber(elementName), null, reverse);
+                    return true;
+                }
+            }
         } catch (err) {
             return false;
         }
     }
 
-    clickElementByName(elementName, reverse = false) {
-        this.page.waitForVisible(this.locators.elementByNumber(elementName), null, reverse);
-        this.page.click(this.locators.elementByNumber(elementName));
+    clickElementByName(elementName, type, reverse = false) {
+        switch (type){
+            case "folder": {
+                this.page.waitForVisible(this.locators.elementFolderByNumber(elementName), null, reverse);
+                this.page.click(this.locators.elementFolderByNumber(elementName));
+            }
+            case "more": {
+                this.page.waitForVisible(this.locators.elementMoreByNumber(elementName), null, reverse);
+                this.page.click(this.locators.elementMoreByNumber(elementName));
+            }
+        }
     }
 
 }
