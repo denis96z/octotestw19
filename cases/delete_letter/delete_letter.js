@@ -1,7 +1,7 @@
 import main from '../../steps/main';
 import letters from '../../steps/letters';
 import buttons from '../../steps/portal/button';
-import returnToInbox from '../../steps/index';
+import returnToInbox from '../../steps';
 
 describe('delete test', () => {
     it('Авторизоваться и открыть первое письмо на странице и проверить наличие кнопки удалить и удалить это письмо', () => {
