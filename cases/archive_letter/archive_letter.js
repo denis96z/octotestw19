@@ -13,6 +13,9 @@ describe('archive test', () => {
         letters.openBySubject(subject);
         buttons.clickByName('В архив');
 
-        returnToInbox(subject);
+		returnToInbox('archive', subject);
+		
+		main.open('https://octavius.mail.ru/inbox/');
+		letters.openBySubject(subject);
     });
 });

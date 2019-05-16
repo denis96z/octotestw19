@@ -14,5 +14,9 @@ describe('delete test', () => {
         buttons.clickByName('Удалить');
 
         returnToInbox('trash', subject);
+
+        // откроем это письмо, чтобы убедится, что всё ок
+        main.open('https://octavius.mail.ru/inbox/');
+		letters.openBySubject(subject);
     });
 });

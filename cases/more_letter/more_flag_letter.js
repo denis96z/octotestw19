@@ -11,12 +11,12 @@ describe('flag test', () => {
         letters.openBySubject("Вход с нового устройства");
         // кнопка ещё
         buttons.clickByName('Ещё');
-        // пометить непрочитанным 
-        dropdowns.clickByIcoName("16-flag", "more");
+        // пометить флагом 
+        dropdowns.clickByNumber(2, "more");
 
         // кнопка ещё
         buttons.clickByName('Ещё');
-        // пометить прочитанным 
-        dropdowns.clickByIcoName("16-flag", "more");
+        // снять флаг
+        dropdowns.clickByNumber(2, "more");
     });
 });

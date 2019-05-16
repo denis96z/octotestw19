@@ -6,18 +6,20 @@ class DropdownsSteps extends DefaultSteps {
         super(page);
     }
 
-    checkByIcoName(elementName, type) {
-        this.page.hasElementByName(elementName, type);
+    checkByNumber(elementNumber, type) {
+        this.page.hasElementByNumber(elementNumber, type);
     }
 
     /**
      * 
-     * @param {*} elementName имя иконки (пример .ico_**inbox**)
+     * @param {*} elementNumber номер в пункте меню
      * @param {*} type тип выпадающего меню ["folders", "more"]
      */
-    clickByIcoName(elementName, type) {
-        this.checkByIcoName(elementName, type);
-        this.page.clickElementByName(elementName, type);
+    clickByNumber(elementNumber, type) {
+        console.log("lol", elementNumber, type);
+        
+        this.checkByNumber(elementNumber, type);
+        this.page.clickElementByNumber(elementNumber, type);
     }
 
 }

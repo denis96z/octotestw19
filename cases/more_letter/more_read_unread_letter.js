@@ -12,11 +12,11 @@ describe('read/unread letter test', () => {
         // кнопка ещё
         buttons.clickByName('Ещё');
         // пометить непрочитанным 
-        dropdowns.clickByIcoName("16-point", "more");
+        dropdowns.clickByNumber(1, "more");
 
         // кнопка ещё
         buttons.clickByName('Ещё');
         // пометить прочитанным 
-        dropdowns.clickByIcoName("16-point", "more");
+        dropdowns.clickByNumber(1, "more");
     });
 });
