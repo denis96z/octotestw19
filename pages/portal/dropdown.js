@@ -11,6 +11,7 @@ class DropdownsPage extends DefaultPage {
             elementByNumber: (elementName) => inFolderContainer + ` > .nav__item .nav__folder .nav__folder-ico .ico_${elementName}`
         }
     }
+
     /**
      * Проверяет, есть ли такая кнопка в меню
      * @param {string} elementName
@@ -18,7 +19,7 @@ class DropdownsPage extends DefaultPage {
     hasElementByName(elementName, reverse = false) {
         try {
             console.log("element: ", this.locators.elementByNumber(elementName));
-            
+
             this.page.waitForVisible(this.locators.elementByNumber(elementName), null, reverse);
 
             return true;
