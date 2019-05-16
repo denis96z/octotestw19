@@ -10,11 +10,11 @@ class LettersPage extends DefaultPage {
 
         return {
             container,
-            letterByLetterNumber: (letterNumber) => container + ` a.llc:nth-child(${letterNumber+1})`,
+            letterByLetterNumber: (letterNumber) => container + ` a.llc:nth-child(${letterNumber + 1})`,
             letterBySubject: (subject) => `.dataset__items .llc__item_title[title="${subject}"]`
         }
     }
-    
+
     /**
      * Проверяет есть ли письмо с названием Subject
      *

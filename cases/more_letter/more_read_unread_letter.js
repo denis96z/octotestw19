@@ -3,7 +3,6 @@ import letters from '../../steps/letters';
 import buttons from '../../steps/portal/button';
 import dropdowns from '../../steps/portal/dropdown';
 
-// пример теста
 describe('read/unread letter test', () => {
     it('Авторизоваться и открыть первое письмо на странице, пометить его как прочитанное, затем как непрочитанное', () => {
         main.open('https://mail.ru');

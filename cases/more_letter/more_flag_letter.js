@@ -3,9 +3,8 @@ import letters from '../../steps/letters';
 import buttons from '../../steps/portal/button';
 import dropdowns from '../../steps/portal/dropdown';
 
-// пример теста
 describe('flag test', () => {
-    it('Авторизоваться и открыть первое письмо на странице. Пометить письмо флажком важное, снять флажок', () => {
+    it('Авторизоваться и открыть первое письмо на странице. Пометить письмо флажком, снять флажок', () => {
         main.open('https://mail.ru');
         main.login(process.env.LOGIN, process.env.PASSWORD);
 

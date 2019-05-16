@@ -13,6 +13,7 @@ class DropdownsPage extends DefaultPage {
             elementMoreByNumber: (elementName) => inMoreContainer + ` > .ico_${elementName}`,
         }
     }
+
     /**
      * Проверяет, есть ли такая кнопка в меню
      * @param {string} elementName

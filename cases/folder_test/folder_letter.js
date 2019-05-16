@@ -7,7 +7,9 @@ describe('folder test', () => {
         main.open('https://mail.ru');
         main.login(process.env.LOGIN, process.env.PASSWORD);
 
-        letters.openByLetterNumber(1);
+        letters.openBySubject("Вход с нового устройства");
+        buttons.clickByName('В папку');
+
         buttons.checkByName('.button2_folder');
         buttons.clickByName('.button2_folder');
         buttons.checkByName('.nav_expanded > a:nth-child(1)'); // вернуть в Входящие
