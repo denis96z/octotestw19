@@ -8,12 +8,17 @@ describe('flag test', () => {
         main.open('https://mail.ru');
         main.login(process.env.LOGIN, process.env.PASSWORD);
 
-        letters.openBySubject("Вход с нового устройства");
+        let subject = 'Вход с нового устройства';
+
+        letters.openBySubject(subject);
         // кнопка ещё
         buttons.clickByName('Ещё');
         // пометить флагом 
         dropdowns.clickByNumber(2, "more");
 
+
+        main.open('https://octavius.mail.ru/inbox/');
+        letters.openBySubject(subject);
         // кнопка ещё
         buttons.clickByName('Ещё');
         // снять флаг

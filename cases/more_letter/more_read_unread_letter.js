@@ -8,12 +8,16 @@ describe('read/unread letter test', () => {
         main.open('https://mail.ru');
         main.login(process.env.LOGIN, process.env.PASSWORD);
 
-        letters.openBySubject("Вход с нового устройства");
+        let subject = 'Вход с нового устройства';
+
+        letters.openBySubject(subject);
         // кнопка ещё
         buttons.clickByName('Ещё');
         // пометить непрочитанным 
         dropdowns.clickByNumber(1, "more");
 
+        main.open('https://octavius.mail.ru/inbox/');
+        letters.openBySubject(subject);
         // кнопка ещё
         buttons.clickByName('Ещё');
         // пометить прочитанным 

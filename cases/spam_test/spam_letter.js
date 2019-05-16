@@ -14,5 +14,8 @@ describe('spam test', () => {
         buttons.clickByName('Спам');
 
         returnToInbox('spam', subject);
+        
+        main.open('https://octavius.mail.ru/inbox/');
+		letters.openBySubject(subject);
     });
 });
