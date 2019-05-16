@@ -8,9 +8,11 @@ describe('archive test', () => {
         main.open('https://mail.ru');
         main.login(process.env.LOGIN, process.env.PASSWORD);
 
-        letters.openBySubject("Вход с нового устройства");
+        let subject = 'Вход с нового устройства';
+
+        letters.openBySubject(subject);
         buttons.clickByName('В архив');
 
-        returnToInbox('archive');
+        returnToInbox(subject);
     });
 });

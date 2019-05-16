@@ -8,9 +8,11 @@ describe('spam test', () => {
         main.open('https://mail.ru');
         main.login(process.env.LOGIN, process.env.PASSWORD);
 
-        letters.openBySubject("Вход с нового устройства");
+        let subject = 'Вход с нового устройства';
+
+        letters.openBySubject(subject);
         buttons.clickByName('Спам');
 
-        returnToInbox('spam');
+        returnToInbox('spam', subject);
     });
 });
