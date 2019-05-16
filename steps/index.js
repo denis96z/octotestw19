@@ -7,5 +7,5 @@ export default function returnToInbox(from, subject) {
     main.open(`https://octavius.mail.ru/${from}/`);
     letters.openBySubject(subject);
     buttons.clickByName('В папку');
-    dropdowns.clickByName("inbox");
+    dropdowns.clickByIcoName("inbox", "folders"); // клик по иконке(Входящие)
 }

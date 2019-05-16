@@ -1,6 +1,7 @@
 import main from '../../steps/main';
 import letters from '../../steps/letters';
 import buttons from '../../steps/portal/button';
+import dropdowns from '../../steps/portal/dropdown';
 
 describe('read/unread letter test', () => {
     it('Авторизоваться и открыть первое письмо на странице, пометить его как прочитанное, затем как непрочитанное', () => {
@@ -8,8 +9,14 @@ describe('read/unread letter test', () => {
         main.login(process.env.LOGIN, process.env.PASSWORD);
 
         letters.openBySubject("Вход с нового устройства");
+        // кнопка ещё
+        buttons.clickByName('Ещё');
+        // пометить непрочитанным 
+        dropdowns.clickByIcoName("16-point", "more");
 
-        buttons.clickByName('Пометить прочитанным');
-        buttons.clickByName('Пометить непрочитанным');
+        // кнопка ещё
+        buttons.clickByName('Ещё');
+        // пометить прочитанным 
+        dropdowns.clickByIcoName("16-point", "more");
     });
 });
