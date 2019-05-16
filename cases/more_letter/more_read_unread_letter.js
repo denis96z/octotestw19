@@ -8,7 +8,8 @@ describe('read/unread letter test', () => {
         main.open('https://mail.ru');
         main.login(process.env.LOGIN, process.env.PASSWORD);
 
-        let subject = 'Вход с нового устройства';
+        const subject = 'Вход с нового устройства';
+        const id = '1:d043b97094698702:0';
 
         letters.openBySubject(subject);
         // кнопка ещё
@@ -16,9 +17,13 @@ describe('read/unread letter test', () => {
         // пометить непрочитанным 
         dropdowns.clickByNumber(1, "more");
 
+
         main.open('https://octavius.mail.ru/inbox/');
+        letters.checkReadUnread(subject, id);
+
+
         letters.openBySubject(subject);
-        // кнопка ещё
+		// кнопка ещё
         buttons.clickByName('Ещё');
         // пометить прочитанным 
         dropdowns.clickByNumber(1, "more");

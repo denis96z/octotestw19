@@ -11,7 +11,8 @@ class LettersPage extends DefaultPage {
         return {
             container,
             letterByLetterNumber: (letterNumber) => container + ` a.llc:nth-child(${letterNumber + 1})`,
-            letterBySubject: (subject) => `.dataset__items .llc__item_title[title="${subject}"]`
+            letterBySubject: (subject) => `.dataset__items .llc__item_title[title="${subject}"]`,
+            checkReadUnreadById: (id) => `.dataset__items .llc[data-id="${id}"] .ll-rs`,
         }
     }
 
@@ -46,6 +47,16 @@ class LettersPage extends DefaultPage {
             return false;
         }
 
+    }
+
+    checkReadUnread(id, reverse = false){
+        try {
+            this.page.waitForVisible(this.locators.checkReadUnreadById(id), null, reverse);
+
+            return true;
+        } catch (err) {
+            return false;
+        }
     }
 
 }

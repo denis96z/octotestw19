@@ -11,6 +11,11 @@ class LettersSteps extends DefaultSteps {
         this.page.openBySubject(subject);
     }
 
+    checkReadUnread(subject, id){
+        this.page.hasLetterBySubject(subject);
+        this.page.checkReadUnread(id);
+    }
+
 }
 
 export default new LettersSteps();
