@@ -3,7 +3,7 @@ import layout from '../../steps/layout'
 import folders from '../../steps/sidebar/folders';
 import letters from '../../steps/letters';
 import buttons from '../../steps/portal/button';
-import returnToInbox from '../../steps/utils';
+import returnToInbox from '../../steps';
 
 // пример теста
 describe('archive test', () => {
@@ -14,6 +14,6 @@ describe('archive test', () => {
 		letters.openBySubject("Вход с нового устройства"); // выбор письма по теме
 		buttons.clickByName('В архив');
 
-		returnToInbox('archive')		
+		returnToInbox('archive');		
 	});
 });

@@ -6,10 +6,11 @@ class ButtonsPage extends DefaultPage {
     }
 
     get locators() {
-        const container = '';
+        const container = '.portal-menu .layout__main-frame .portal-menu-element ';
         return {
             container,
-            buttonByName: (buttonName) => `.portal-menu .layout__main-frame .portal-menu-element .button2[title="${buttonName}"]`
+            buttonByName: (buttonName) => container + `.button2[title="${buttonName}"]`,
+            disabledButtonByName: (buttonName) => container + `.button2[data-title="${buttonName}"][disabled=""]`,
         }
     }
 
@@ -20,6 +21,16 @@ class ButtonsPage extends DefaultPage {
     hasButtonByName(buttonName, reverse = false) {
         try {
             this.page.waitForVisible(this.locators.buttonByName(buttonName), null, reverse);
+
+            return true;
+        } catch (err) {
+            return false;
+        }
+    }
+
+    hasDisabledButtonByName(buttonName, reverse = false) {
+        try {
+            this.page.waitForVisible(this.locators.disabledButtonByName(buttonName), null, reverse);
 
             return true;
         } catch (err) {

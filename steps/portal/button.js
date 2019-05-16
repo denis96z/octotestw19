@@ -10,6 +10,10 @@ class ButtonsSteps extends DefaultSteps {
         this.page.hasButtonByName(buttonName);
     }
 
+    checkDisabledByName(buttonName){
+        this.page.hasDisabledButtonByName(buttonName);
+    }
+
     clickByName(buttonName) {
         this.checkByName(buttonName);
         this.page.clickButtonByName(buttonName);
