@@ -9,7 +9,3 @@ export default function returnToInbox(from, subject) {
     buttons.clickByName('В папку');
     dropdowns.clickByNumber(1, "folders"); // клик по иконке(Входящие)
 }
-
-export function checkReadUnread(){
-    main.open(`https://octavius.mail.ru/`);
-}
