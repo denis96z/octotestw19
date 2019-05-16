@@ -9,7 +9,7 @@ class ButtonsPage extends DefaultPage {
         const container = '';
         return {
             container,
-            buttonByName: (buttonName) => container + ` ${buttonName}`
+            buttonByName: (buttonName) => `.portal-menu .layout__main-frame .portal-menu-element .button2[title="${buttonName}"]`
         }
     }
 

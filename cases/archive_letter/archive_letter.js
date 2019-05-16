@@ -11,9 +11,8 @@ describe('archive test', () => {
 		main.open('https://mail.ru');
 		main.login(process.env.LOGIN, process.env.PASSWORD);
 		
-		letters.openByLetterNumber(1); // выбор первого письма из списка
-		buttons.checkByName('.button2_archive');
-		buttons.clickByName('.button2_archive');
+		letters.openBySubject("Вход с нового устройства"); // выбор письма по теме
+		buttons.clickByName('В архив');
 
 		returnToInbox('archive')		
 	});
