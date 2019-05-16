@@ -8,7 +8,7 @@ describe('flag test', () => {
         main.open('https://mail.ru');
         main.login(process.env.LOGIN, process.env.PASSWORD);
 
-        let subject = 'Вход с нового устройства';
+        let subject = 'test1';
 
         letters.openBySubject(subject);
         // кнопка ещё

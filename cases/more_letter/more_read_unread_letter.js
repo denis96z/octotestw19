@@ -8,8 +8,8 @@ describe('read/unread letter test', () => {
         main.open('https://mail.ru');
         main.login(process.env.LOGIN, process.env.PASSWORD);
 
-        const subject = 'Вход с нового устройства';
-        const id = '1:d043b97094698702:0';
+        const subject = 'test1';
+        const id = '1:9ed4cdea4d30a62d:0';
 
         letters.openBySubject(subject);
         // кнопка ещё
