@@ -6,24 +6,25 @@ class LettersPage extends DefaultPage {
     }
 
     get locators() {
-        const container = '[class="dataset__items"]';
+        const container = '.dataset__items';
 
         return {
             container,
-            letterByLetterNumber: (letterNumber) => container + ` a.llc:nth-child(${letterNumber})`
+            letterByLetterNumber: (letterNumber) => container + ` a.llc:nth-child(${letterNumber+1})`,
+            letterBySubject: (subject) => `.dataset__items .llc__item_title[title="${subject}"]`
         }
     }
-
+    
     /**
-     * Проверяет есть ли письмо с темой
+     * Проверяет есть ли письмо с названием Subject
      *
-     * @param {string} letterNumber
+     * @param {string} subject
      * @param {boolean} reverse
      * @returns {boolean}
      */
-    hasLetterByLetterNumber(letterNumber, reverse = false) {
+    hasLetterBySubject(subject, reverse = false) {
         try {
-            this.page.waitForVisible(this.locators.letterByLetterNumber(letterNumber), null, reverse);
+            this.page.waitForVisible(this.locators.letterBySubject(subject), null, reverse);
 
             return true;
         } catch (err) {
@@ -32,13 +33,13 @@ class LettersPage extends DefaultPage {
     }
 
     /**
-     * Открыть письмо по letterNumber
-     * @param  {string} letterNumber
+     * Открыть письмо по названию
+     * @param  {string} subject
      */
-    openByLetterNumber(letterNumber, reverse = false) {
+    openBySubject(subject, reverse = false) {
         try {
-            this.page.waitForVisible(this.locators.letterByLetterNumber(letterNumber), null, reverse);
-            this.page.click(this.locators.letterByLetterNumber(letterNumber));
+            this.page.waitForVisible(this.locators.letterBySubject(subject), null, reverse);
+            this.page.click(this.locators.letterBySubject(subject));
 
             return true;
         } catch (err) {
