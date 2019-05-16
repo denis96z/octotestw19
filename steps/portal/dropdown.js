@@ -15,9 +15,7 @@ class DropdownsSteps extends DefaultSteps {
      * @param {*} elementNumber номер в пункте меню
      * @param {*} type тип выпадающего меню ["folders", "more"]
      */
-    clickByNumber(elementNumber, type) {
-        console.log("lol", elementNumber, type);
-        
+    clickByNumber(elementNumber, type) { 
         this.checkByNumber(elementNumber, type);
         this.page.clickElementByNumber(elementNumber, type);
     }

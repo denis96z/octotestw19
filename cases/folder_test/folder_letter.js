@@ -1,6 +1,7 @@
 import main from '../../steps/main';
 import letters from '../../steps/letters';
 import buttons from '../../steps/portal/button';
+import dropdowns from '../../steps/portal/dropdown';
 
 describe('folder test', () => {
     it('Авторизоваться и переместить письмо в папку входящие', () => {
