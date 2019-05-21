@@ -20,6 +20,7 @@ describe('reply and forward test', () => {
         // проверка темы сообщения, в данном случае на ответ
         letters.checkReplyForwardSubject(subject, false);
         letters.closeReplyForwardWindow();
+        letters.checkMessageMin();
     });
     it(`Авторизоваться и открыть первое письмо на странице. 
     Ответить на письмо.`, () => {
@@ -31,5 +32,6 @@ describe('reply and forward test', () => {
         // проверка темы сообщения, в данном случае на ответ
         letters.checkReplyForwardSubject(subject, true);
         letters.closeReplyForwardWindow();
+        letters.checkMessageMin();
     });
 });

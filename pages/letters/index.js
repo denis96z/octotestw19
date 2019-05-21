@@ -21,7 +21,8 @@ class LettersPage extends DefaultPage {
                 .container--H9L5q[value="` + (isReply ? 'Re' : 'Fwd' ) +`: ${subject}"]`,
             closeReplyForwardWindow: () =>
                 `.compose-app__compose .controls_container--17SRg 
-                .container--1mFoS[title="Закрыть"]`,
+                .container--1mFoS[title="Свернуть"]`,
+            minMessage: () => `.compose-collapsed__title`,
         };
     }
 
@@ -120,6 +121,16 @@ class LettersPage extends DefaultPage {
         try {
             this.page.waitForVisible(this.locators.closeReplyForwardWindow(), null, reverse);
             this.page.click(this.locators.closeReplyForwardWindow());
+
+            return true;
+        } catch (err) {
+            return false;
+        }
+    }
+
+    checkMessageMin(reverse = false) {
+        try {
+            this.page.waitForVisible(this.locators.minMessage(), null, reverse);
 
             return true;
         } catch (err) {

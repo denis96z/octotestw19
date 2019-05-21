@@ -28,6 +28,10 @@ class LettersSteps extends DefaultSteps {
     closeReplyForwardWindow() {
         this.page.closeReplyForwardWindow();
     }
+
+    checkMessageMin() {
+        this.page.checkMessageMin();
+    }
 }
 
 export default new LettersSteps();
