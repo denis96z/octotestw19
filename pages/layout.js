@@ -2,7 +2,7 @@ import DefaultPage from './default';
 
 class Layout extends DefaultPage {
     constructor() {
-        super('layout')
+        super('layout');
     }
 
     get locators() {
@@ -20,8 +20,8 @@ class Layout extends DefaultPage {
             dropDownButton,
             dropDownList,
             layoutSwitch,
-            paneCheckbox
-        }
+            paneCheckbox,
+        };
     }
 
     toggleDropdownButton() {
@@ -34,40 +34,38 @@ class Layout extends DefaultPage {
         this.toggleDropdownButton();
         this.page.waitForVisible(this.locators.dropDownList);
 
-        const is3pane = this.hasClass(this.locators.paneCheckbox, 'b-checkbox_checked')
+        const is3pane = this.hasClass(this.locators.paneCheckbox, 'b-checkbox_checked');
 
         switch (pane) {
-            case 2:
-                if (is3pane) {
-                    this.page.click(this.locators.layoutSwitch);
-                } else {
-                    // закрываем за собой меню
-                    this.toggleDropdownButton();
-                }
-                break;
-            case 3:
-                if (!is3pane) {
-                    this.page.click(this.locators.layoutSwitch);
-
-                } else {
-                    // закрываем за собой меню
-                    this.toggleDropdownButton();
-                }
-                break;
+        case 2:
+            if (is3pane) {
+                this.page.click(this.locators.layoutSwitch);
+            } else {
+                // закрываем за собой меню
+                this.toggleDropdownButton();
+            }
+            break;
+        case 3:
+            if (!is3pane) {
+                this.page.click(this.locators.layoutSwitch);
+            } else {
+                // закрываем за собой меню
+                this.toggleDropdownButton();
+            }
+            break;
         }
     }
 
     setLayout(width) {
         this.currentSize = width;
-        const aspect_ratio = 1.3;
-        let height = width / aspect_ratio;
+        const aspectRatio = 1.3;
+        let height = width / aspectRatio;
         if (width < Layout.sizeXS) {
-            height = width * aspect_ratio;
+            height = width * aspectRatio;
         }
 
         this.page.setViewportSize({width, height});
     }
-
 }
 
 export default new Layout();

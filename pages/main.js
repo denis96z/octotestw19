@@ -2,7 +2,7 @@ import DefaultPage from './default';
 
 class MainPage extends DefaultPage {
     constructor() {
-        super('main')
+        super('main');
     }
 
     get locators() {
@@ -11,8 +11,8 @@ class MainPage extends DefaultPage {
             container,
             login: container + ' input[name="login"]',
             password: container + ' input[name="password"]',
-            button: '[type="submit"]'
-        }
+            button: '[type="submit"]',
+        };
     }
 
     fillLoginForm(username, password) {
@@ -24,9 +24,8 @@ class MainPage extends DefaultPage {
 
     submit() {
         this.page.waitForVisible(this.locators.button);
-        this.page.click(this.locators.button)
+        this.page.click(this.locators.button);
     }
-
 }
 
 export default new MainPage();

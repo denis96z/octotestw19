@@ -2,15 +2,16 @@ import DefaultPage from '../default';
 
 class FoldersPage extends DefaultPage {
     constructor() {
-        super('letters')
+        super('letters');
     }
 
     get locators() {
         const container = '[data-qa-id="sidebar"] [data-qa-id="folders"]';
         return {
             container,
-            folderByName: (folderName) => container + ` [data-qa-id="folder-name:name:${folderName}"]`
-        }
+            folderByName: (folderName) =>
+                container + ` [data-qa-id="folder-name:name:${folderName}"]`,
+        };
     }
 
     /**
@@ -22,7 +23,6 @@ class FoldersPage extends DefaultPage {
         this.page.waitForVisible(locator);
         this.page.click(locator);
     }
-
 }
 
 export default new FoldersPage();

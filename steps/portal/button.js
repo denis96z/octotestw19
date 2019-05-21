@@ -18,7 +18,6 @@ class ButtonsSteps extends DefaultSteps {
         this.checkByName(buttonName);
         this.page.clickButtonByName(buttonName);
     }
-
 }
 
 export default new ButtonsSteps();
