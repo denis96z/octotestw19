@@ -18,5 +18,5 @@ jobs:
       script:
         - npm i && npm test
     - stage: run lint
-        script:
-          - npm run lint
+      script:
+        - npm run lint
