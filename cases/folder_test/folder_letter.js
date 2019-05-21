@@ -8,8 +8,8 @@ describe('folder test', () => {
         main.open('https://mail.ru');
         main.login(process.env.LOGIN, process.env.PASSWORD);
 
-        letters.openBySubject("test1");
+        letters.openBySubject('test1');
         buttons.clickByName('В папку');
-        dropdowns.clickByNumber(1, "folders");
+        dropdowns.clickByNumber(1, 'folders');
     });
 });

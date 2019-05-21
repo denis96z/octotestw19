@@ -8,7 +8,7 @@ describe('spam test', () => {
         main.open('https://mail.ru');
         main.login(process.env.LOGIN, process.env.PASSWORD);
 
-        let subject = 'test1';
+        const subject = 'test1';
 
         letters.openBySubject(subject);
         buttons.clickByName('Спам');
@@ -16,6 +16,6 @@ describe('spam test', () => {
         returnToPreviousState('spam', subject);
 
         main.open('https://octavius.mail.ru/inbox/');
-		letters.openBySubject(subject);
+        letters.openBySubject(subject);
     });
 });

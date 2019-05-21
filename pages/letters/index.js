@@ -2,7 +2,7 @@ import DefaultPage from '../default';
 
 class LettersPage extends DefaultPage {
     constructor() {
-        super('letters')
+        super('letters');
     }
 
     get locators() {
@@ -10,13 +10,19 @@ class LettersPage extends DefaultPage {
 
         return {
             container,
-            letterByLetterNumber: (letterNumber) => container + ` a.llc:nth-child(${letterNumber + 1})`,
+            letterByLetterNumber: (letterNumber) =>
+                container + ` a.llc:nth-child(${letterNumber + 1})`,
             letterBySubject: (subject) => `.dataset__items .llc__item_title[title="${subject}"]`,
             checkReadUnreadById: (id) => `.dataset__items .llc[data-id="${id}"] .ll-rs`,
-            checkFlagById: (id, isSet) => `.dataset__items .llc[data-id="${id}"] .ll-fs` + isSet ? ' .ll-fs_is-active' : '',
-            checkReplyForwardSubject: (subject, isReply) => `.container--3QXHv > .inputContainer--nsqFu > .container--H9L5q[value="` + (isReply ? 'Re' : 'Fwd' ) +`: ${subject}"]`,
-            closeReplyForwardWindow: () => `.compose-app__compose .controls_container--17SRg .container--1mFoS[title="Закрыть"]`
-        }
+            checkFlagById: (id, isSet) => `.dataset__items .llc[data-id="${id}"] .ll-fs`
+                + isSet ? ' .ll-fs_is-active' : '',
+            checkReplyForwardSubject: (subject, isReply) =>
+                `.container--3QXHv > .inputContainer--nsqFu > 
+                .container--H9L5q[value="` + (isReply ? 'Re' : 'Fwd' ) +`: ${subject}"]`,
+            closeReplyForwardWindow: () =>
+                `.compose-app__compose .controls_container--17SRg 
+                .container--1mFoS[title="Закрыть"]`,
+        };
     }
 
     /**
@@ -24,7 +30,7 @@ class LettersPage extends DefaultPage {
      *
      * @param {string} subject
      * @param {boolean} reverse
-     * @returns {boolean}
+     * @return {boolean}
      */
     hasLetterBySubject(subject, reverse = false) {
         try {
@@ -39,6 +45,8 @@ class LettersPage extends DefaultPage {
     /**
      * Открыть письмо по названию
      * @param  {string} subject
+     * @param {boolean} reverse
+     * @return {boolean}
      */
     openBySubject(subject, reverse = false) {
         try {
@@ -49,14 +57,15 @@ class LettersPage extends DefaultPage {
         } catch (err) {
             return false;
         }
-
     }
 
     /**
      * Проверить помечено ли письмо как прочитанное или нет
      * @param {*} id id письма
+     * @param {boolean} reverse
+     * @return {boolean}
      */
-    checkReadUnread(id, reverse = false){
+    checkReadUnread(id, reverse = false) {
         try {
             this.page.waitForVisible(this.locators.checkReadUnreadById(id), null, reverse);
 
@@ -70,8 +79,10 @@ class LettersPage extends DefaultPage {
      * Проверка выставлен ли флаг у письма или нет
      * @param {*} id id письма
      * @param {*} isSet если true, то проверка на наличие флага у письма, false иначе
+     * @param {boolean} reverse
+     * @return {boolean}
      */
-    checkFlag(id, isSet, reverse = false){
+    checkFlag(id, isSet, reverse = false) {
         try {
             this.page.waitForVisible(this.locators.checkReadUnreadById(id, isSet), null, reverse);
 
@@ -85,10 +96,14 @@ class LettersPage extends DefaultPage {
      * Проверка на наличие темы письма с приставкой "Re: " или "Fwd: "
      * @param {*} subject тема письма
      * @param {*} isReply true – проверка на Re, false – проверка на Fwd
+     * @param {boolean} reverse
+     * @return {boolean}
      */
-    checkReplyForwardSubject(subject, isReply, reverse = false){
+    checkReplyForwardSubject(subject, isReply, reverse = false) {
         try {
-            this.page.waitForVisible(this.locators.checkReplyForwardSubject(subject, isReply), null, reverse);
+            this.page.waitForVisible(
+                this.locators.checkReplyForwardSubject(subject, isReply), null, reverse
+            );
 
             return true;
         } catch (err) {
@@ -98,8 +113,10 @@ class LettersPage extends DefaultPage {
 
     /**
      * Закрывает окно ответа на письмо
+     * @param {boolean} reverse
+     * @return {boolean}
      */
-    closeReplyForwardWindow(reverse = false){
+    closeReplyForwardWindow(reverse = false) {
         try {
             this.page.waitForVisible(this.locators.closeReplyForwardWindow(), null, reverse);
             this.page.click(this.locators.closeReplyForwardWindow());
@@ -109,7 +126,6 @@ class LettersPage extends DefaultPage {
             return false;
         }
     }
-
 }
 
 export default new LettersPage();

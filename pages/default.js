@@ -5,7 +5,7 @@ export default class DefaultPage {
 
     get locators() {
         return {
-            container: 'body'
+            container: 'body',
         };
     }
 
@@ -18,11 +18,11 @@ export default class DefaultPage {
     }
 
     redirectToQa() {
-        browser.url('/bundles/page.qa.html')
+        browser.url('/bundles/page.qa.html');
     }
 
     waitForUrl(value, timeout, revert) {
-        let url, actual;
+        let url; let actual;
         try {
             return browser.waitUntil(() => {
                 url = browser.getUrl();
@@ -77,5 +77,4 @@ export default class DefaultPage {
 
         return actual.includes(name);
     }
-
 }

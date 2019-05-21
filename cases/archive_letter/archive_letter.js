@@ -8,14 +8,14 @@ describe('archive test', () => {
         main.open('https://mail.ru');
         main.login(process.env.LOGIN, process.env.PASSWORD);
 
-        let subject = 'test1';
+        const subject = 'test1';
 
         letters.openBySubject(subject);
         buttons.clickByName('В архив');
 
-		returnToPreviousState('archive', subject);
-		
-		main.open('https://octavius.mail.ru/inbox/');
-		letters.openBySubject(subject);
+        returnToPreviousState('archive', subject);
+
+        main.open('https://octavius.mail.ru/inbox/');
+        letters.openBySubject(subject);
     });
 });

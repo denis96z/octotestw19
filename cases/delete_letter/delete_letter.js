@@ -4,11 +4,12 @@ import buttons from '../../steps/portal/button';
 import returnToPreviousState from '../../steps';
 
 describe('delete test', () => {
-    it('Авторизоваться и открыть первое письмо на странице и проверить наличие кнопки удалить и удалить это письмо', () => {
+    it(`Авторизоваться и открыть первое письмо на странице и 
+    проверить наличие кнопки удалить и удалить это письмо`, () => {
         main.open('https://mail.ru');
         main.login(process.env.LOGIN, process.env.PASSWORD);
 
-        let subject = 'test1';
+        const subject = 'test1';
 
         letters.openBySubject(subject);
         buttons.clickByName('Удалить');
@@ -17,6 +18,6 @@ describe('delete test', () => {
 
         // откроем это письмо, чтобы убедится, что всё ок
         main.open('https://octavius.mail.ru/inbox/');
-		letters.openBySubject(subject);
+        letters.openBySubject(subject);
     });
 });

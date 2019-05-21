@@ -4,7 +4,8 @@ import buttons from '../../steps/portal/button';
 import dropdowns from '../../steps/portal/dropdown';
 
 describe('read/unread letter test', () => {
-    it('Авторизоваться и открыть первое письмо на странице, пометить его как прочитанное, затем как непрочитанное', () => {
+    it(`Авторизоваться и открыть первое письмо на странице, 
+    пометить его как прочитанное, затем как непрочитанное`, () => {
         main.open('https://mail.ru');
         main.login(process.env.LOGIN, process.env.PASSWORD);
 
@@ -14,8 +15,8 @@ describe('read/unread letter test', () => {
         letters.openBySubject(subject);
         // кнопка ещё
         buttons.clickByName('Ещё');
-        // пометить непрочитанным 
-        dropdowns.clickByNumber(1, "more");
+        // пометить непрочитанным
+        dropdowns.clickByNumber(1, 'more');
 
 
         main.open('https://octavius.mail.ru/inbox/');
@@ -23,9 +24,9 @@ describe('read/unread letter test', () => {
 
 
         letters.openBySubject(subject);
-		// кнопка ещё
+        // кнопка ещё
         buttons.clickByName('Ещё');
-        // пометить прочитанным 
-        dropdowns.clickByNumber(1, "more");
+        // пометить прочитанным
+        dropdowns.clickByNumber(1, 'more');
     });
 });

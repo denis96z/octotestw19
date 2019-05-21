@@ -9,6 +9,6 @@ export default {
         sizeL: 1440,
         sizeL1: 1700,
         sizeXL: 1800,
-        sizeXXL: 2560
-    }
+        sizeXXL: 2560,
+    },
 };

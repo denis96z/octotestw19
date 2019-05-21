@@ -9,7 +9,6 @@ class FoldersSteps extends DefaultSteps {
     clickFolderByName(folderName) {
         this.page.clickFolderByName(folderName);
     }
-
 }
 
 export default new FoldersSteps();
