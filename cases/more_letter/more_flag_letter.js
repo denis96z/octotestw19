@@ -9,6 +9,7 @@ describe('flag test', () => {
         main.login(process.env.LOGIN, process.env.PASSWORD);
 
         let subject = 'test1';
+		const id = '1:9ed4cdea4d30a62d:0';
 
         letters.openBySubject(subject);
         // кнопка ещё
@@ -18,10 +19,15 @@ describe('flag test', () => {
 
 
         main.open('https://octavius.mail.ru/inbox/');
+        letters.checkFlag(subject, id, true); // проверка установлен ли флаг
+
         letters.openBySubject(subject);
         // кнопка ещё
         buttons.clickByName('Ещё');
         // снять флаг
-        dropdowns.clickByNumber(2, "more");
+		dropdowns.clickByNumber(2, "more");
+		
+		main.open('https://octavius.mail.ru/inbox/');
+        letters.checkFlag(subject, id, false); // проверка снят ли флаг
     });
 });

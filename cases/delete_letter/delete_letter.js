@@ -1,7 +1,7 @@
 import main from '../../steps/main';
 import letters from '../../steps/letters';
 import buttons from '../../steps/portal/button';
-import returnToInbox from '../../steps';
+import returnToPreviousState from '../../steps';
 
 describe('delete test', () => {
     it('Авторизоваться и открыть первое письмо на странице и проверить наличие кнопки удалить и удалить это письмо', () => {
@@ -13,7 +13,7 @@ describe('delete test', () => {
         letters.openBySubject(subject);
         buttons.clickByName('Удалить');
 
-        returnToInbox('trash', subject);
+        returnToPreviousState('trash', subject);
 
         // откроем это письмо, чтобы убедится, что всё ок
         main.open('https://octavius.mail.ru/inbox/');

@@ -1,7 +1,7 @@
 import main from '../../steps/main';
 import letters from '../../steps/letters';
 import buttons from '../../steps/portal/button';
-import returnToInbox from '../../steps';
+import returnToPreviousState from '../../steps';
 
 describe('spam test', () => {
     it('Авторизоваться и поместить письмо в спам', () => {
@@ -13,7 +13,7 @@ describe('spam test', () => {
         letters.openBySubject(subject);
         buttons.clickByName('Спам');
 
-        returnToInbox('spam', subject);
+        returnToPreviousState('spam', subject);
 
         main.open('https://octavius.mail.ru/inbox/');
 		letters.openBySubject(subject);

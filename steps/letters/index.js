@@ -16,6 +16,19 @@ class LettersSteps extends DefaultSteps {
         this.page.checkReadUnread(id);
     }
 
+    checkFlag(subject, id, isSet){
+        this.page.hasLetterBySubject(subject);
+        this.page.checkFlag(id, isSet);
+    }
+
+    checkReplyForwardSubject(subject, isReply){
+        this.page.checkReplyForwardSubject(subject, isReply);
+    }
+
+    closeReplyForwardWindow(){
+        this.page.closeReplyForwardWindow();
+    }
+
 }
 
 export default new LettersSteps();
