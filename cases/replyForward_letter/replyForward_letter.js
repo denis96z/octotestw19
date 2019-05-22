@@ -8,7 +8,6 @@ describe('reply and forward test', () => {
     before(() => {
         main.open('https://mail.ru');
         main.login(process.env.LOGIN, process.env.PASSWORD);
-        
     });
     it(`Авторизоваться и открыть первое письмо на странице. 
     Переслать на письмо.`, () => {
