@@ -19,7 +19,6 @@ describe('reply and forward test', () => {
         letters.checkReplyForwardSubject(subject, false);
         letters.closeReplyForwardWindow();
         letters.checkMessageMin();
-        main.open('https://octavius.mail.ru/inbox/');
     });
     it(`Авторизоваться и открыть первое письмо на странице. 
     Ответить на письмо.`, () => {
