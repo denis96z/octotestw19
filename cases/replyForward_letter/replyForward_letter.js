@@ -2,9 +2,8 @@ import main from '../../steps/main';
 import letters from '../../steps/letters';
 import buttons from '../../steps/portal/button';
 
-
+const subject = 'test1';
 describe('reply and forward test', () => {
-    const subject = 'test1';
     before(() => {
         main.open('https://mail.ru');
         main.login(process.env.LOGIN, process.env.PASSWORD);
