@@ -4,15 +4,14 @@ import buttons from '../../steps/portal/button';
 
 
 describe('reply and forward test', () => {
-    before(function() {
+    const subject = 'test1';
+    before(() => {
         main.open('https://mail.ru');
         main.login(process.env.LOGIN, process.env.PASSWORD);
     });
     it(`Авторизоваться и открыть первое письмо на странице. 
     Переслать на письмо.`, () => {
         main.open('https://octavius.mail.ru/inbox/');
-
-        const subject = 'test1';
 
         letters.openBySubject(subject);
         buttons.clickByName('Переслать');
@@ -21,10 +20,10 @@ describe('reply and forward test', () => {
         letters.checkReplyForwardSubject(subject, false);
         letters.closeReplyForwardWindow();
         letters.checkMessageMin();
+        main.open('https://octavius.mail.ru/inbox/');
     });
     it(`Авторизоваться и открыть первое письмо на странице. 
     Ответить на письмо.`, () => {
-        const subject = 'test1';
         main.open('https://octavius.mail.ru/inbox/');
         letters.openBySubject(subject);
         buttons.clickByName('Ответить');
@@ -33,5 +32,6 @@ describe('reply and forward test', () => {
         letters.checkReplyForwardSubject(subject, true);
         letters.closeReplyForwardWindow();
         letters.checkMessageMin();
+        main.open('https://octavius.mail.ru/inbox/');
     });
 });

@@ -20,8 +20,7 @@ class LettersPage extends DefaultPage {
                 `.container--3QXHv > .inputContainer--nsqFu > 
                 .container--H9L5q[value="` + (isReply ? 'Re' : 'Fwd' ) +`: ${subject}"]`,
             closeReplyForwardWindow: () =>
-                `.compose-app__compose .controls_container--17SRg 
-                .container--1mFoS[title="Свернуть"]`,
+                `.container--30-bI[title="Свернуть"]`,
             minMessage: () => `.compose-collapsed__title`,
         };
     }
