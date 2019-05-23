@@ -10,10 +10,10 @@ describe('reply and forward test', () => {
     });
     beforeEach(() => {
         main.open('https://octavius.mail.ru/inbox/');
+        letters.openBySubject(subject);
     })
     it(`Авторизоваться и открыть первое письмо на странице. 
     Переслать на письмо.`, () => {
-        letters.openBySubject(subject);
         buttons.clickByName('Переслать');
 
         // проверка темы сообщения, в данном случае на ответ
@@ -23,7 +23,6 @@ describe('reply and forward test', () => {
     });
     it(`Авторизоваться и открыть первое письмо на странице. 
     Ответить на письмо.`, () => {
-        letters.openBySubject(subject);
         buttons.clickByName('Ответить');
 
         // проверка темы сообщения, в данном случае на ответ
