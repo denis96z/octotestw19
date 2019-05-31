@@ -6,10 +6,10 @@ class FoldersPage extends DefaultPage {
 	}
 
 	get locators() {
-		const container = '[data-qa-id="sidebar"] [data-qa-id="folders"]';
+		const container = '[class = "nav__item]';
 		return {
 			container,
-			folderByName: (folderName) => container + ` [data-qa-id="folder-name:name:${folderName}"]`
+			folderByName: (folderName) => container + ` [title=${folderName}]`
 		}
 	}
 

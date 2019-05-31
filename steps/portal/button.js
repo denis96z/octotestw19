@@ -1,15 +1,23 @@
 import DefaultSteps from '../default';
-import page from '../../pages/portal/buttons';
+import page from '../../pages/portal/button.js';
 
 class ButtonsSteps extends DefaultSteps {
-	constructor() {
+    constructor() {
         super(page);
-	}
+    }
 
-	checkByName(buttonName) {
-		this.page.hasButtonByName(buttonName);
-	}
+    checkByName(buttonName) {
+        this.page.hasButtonByName(buttonName);
+    }
 
+    checkDisabledByName(buttonName) {
+        this.page.hasDisabledButtonByName(buttonName);
+    }
+
+    clickByName(buttonName) {
+        this.checkByName(buttonName);
+        this.page.clickButtonByName(buttonName);
+    }
 }
 
 export default new ButtonsSteps();

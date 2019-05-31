@@ -6,21 +6,19 @@ class Layout extends DefaultPage {
 	}
 
 	get locators() {
-		const container = '[data-qa-id="application"]';
-		const sideBar = container + ' [data-qa-id="main"] [data-qa-id="sidebar"]';
-		const dropDown = sideBar + ' [data-qa-id="dropdown-settings"]';
-		const dropDownButton = dropDown + ' [data-qa-id="dropdown-button"]';
-		const dropDownList = dropDown + ' [data-qa-id="dropdown-list"]';
-		const layoutSwitch = dropDownList + ' [data-qa-id="layout-toggle"]';
-		const paneCheckbox = layoutSwitch + ' .b-checkbox';
+		const container = '.application';
+		const sideBar = '.sidebar';
+		const dropDownButton = '.sidebar__menu-item';
+		const dropDownList = '.sidebar__full';
+		const layoutSwitch = '.sidebar__menu-item';
+		// const paneCheckbox = layoutSwitch + ' .b-checkbox';
 		return {
 			container,
 			sideBar,
-			dropDown,
 			dropDownButton,
 			dropDownList,
 			layoutSwitch,
-			paneCheckbox
+			// paneCheckbox
 		}
 	}
 
@@ -34,7 +32,7 @@ class Layout extends DefaultPage {
 		this.toggleDropdownButton();
 		this.page.waitForVisible(this.locators.dropDownList);
 		
-		const is3pane = this.hasClass(this.locators.paneCheckbox, 'b-checkbox_checked')
+		// const is3pane = this.hasClass(this.locators.paneCheckbox, 'b-checkbox_checked')
 
 		switch (pane) {
 			case 2:
