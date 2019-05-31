@@ -50,3 +50,4 @@ class ButtonsPage extends DefaultPage {
 }
 
 export default new ButtonsPage();
+
